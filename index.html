@@ -12,9 +12,38 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <title>CGC Forum</title>
     <style type="text/css">
-        .search-container{
-          background-color: red;
+        .user-display{
+          font-size: 20px;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+          border-radius: 50%;
+          color: white;
+          background: #3B5998;
         }
+        .question-box{
+          width:90%
+        }
+        .highlight{
+          background-color: #18a2b8;
+          color:white;
+        }
+        .post{
+          height:55px;
+          width:55px;
+          border-radius:50%;
+          position:fixed;
+          top:85%;
+          left:87%;
+          text-align:center;
+          padding-left: 12px;
+          padding-top: 8px;
+          z-index:1;
+          color:white;
+        }
+        
     </style>
   </head>
   <body class="bg-light">
@@ -29,7 +58,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -70,24 +99,134 @@
         <button type="submit" class="btn btn-info"><i class="fas fa-search"></i> Find my query</button>
       </div>
     </form>
-    <div class="rounded container bg-white shadow p-3 rounded">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="container question-box bg-white rounded shadow">
+            <button class="post btn btn-info" type="button" data-toggle="tooltip" data-placement="left" title="Post your query"><i class="fas fa-plus" style="font-size:24px"></i></button>
+            <div class="row">
+            <div class="col-sm-4">
+              <div class="list-group mx-3 my-5">
+                <button type="button" class="list-group-item highlight">
+                  Highlights
+                </button>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Open Source</h5>
+                    <small>3 days ago</small>
+                  </div>
+                  <p class="mb-1">Are you an #opensource enthusiast? But confused about how to pave yor way in this vast community? Grab these #beginner friendly resources to get started!</p>
+                  <small>Deadline 5th November</small><br/>
+                  <small>Follow the link to Register</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-8">
+            <ul style="list-style-type:none;">
+             <li class="p-2">
+              <br/>
+              <div class="media">
+                <a href="#profile"><p class="float-left user-display m-2">DF</p></a>
+                <div class="media-body">
+                  <div class="media-body">
+                    <a href="#profile"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+                    <a href="#my-query"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                    <a href="#my-query"><small class="text-muted reply-hover"><i class="fas fa-reply"></i> Reply</small></a>
+                  </div>
+                </div>
+              </div>
+              <hr/>
+          </li>
 
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </div>
+          <li class="p-2">
+            <div class="media">
+              <a href="#profile"><p class="float-left user-display m-2">DF</p></a>
+              <div class="media-body">
+                <div class="media-body">
+                  <a href="#profile"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+                  <a href="#my-query"><p class="card-text text-left"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</strong></p></a>
+                  <a href="#my-query"><small class="text-muted reply-hover"><i class="fas fa-reply"></i> Reply</small></a>
+                </div>
+              </div>
+            </div>
+            <hr/>
+        </li>
+        <li class="p-2">
+          <br/>
+          <div class="media">
+            <a href="#profile"><p class="float-left user-display m-2">DF</p></a>
+            <div class="media-body">
+              <div class="media-body">
+                <a href="#profile"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+                <a href="#my-query"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                <a href="#my-query"><small class="text-muted reply-hover"><i class="fas fa-reply"></i> Reply</small></a>
+              </div>
+            </div>
+          </div>
+          <hr/>
+      </li>
+      <li class="p-2">
+        <br/>
+        <div class="media">
+          <a href="#profile"><p class="float-left user-display m-2">DF</p></a>
+          <div class="media-body">
+            <div class="media-body">
+              <a href="#profile"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+              <a href="#my-query"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+              <a href="#my-query"><small class="text-muted reply-hover"><i class="fas fa-reply"></i> Reply</small></a>
+            </div>
+          </div>
+        </div>
+        <hr/>
+    </li>
+        <li class="p-2">
+          <div class="media">
+            <a href="#profile"><p class="float-left user-display m-2">DF</p></a>
+            <div class="media-body">
+              <div class="media-body">
+                <a href="#profile"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+                <a href="#my-query"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                <a href="#my-query"><small class="text-muted reply-hover"><i class="fas fa-reply"></i> Reply</small></a>
+              </div>
+            </div>
+          </div>
+          <hr/>
+      </li>
+      <li class="p-2">
+        <div class="media">
+          <a href="#profile"><p class="float-left user-display m-2">DF</p></a>
+          <div class="media-body">
+            <div class="media-body">
+              <a href="#profile"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+              <a href="#my-query"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+              <a href="#my-query"><small class="text-muted reply-hover"><i class="fas fa-reply"></i> Reply</small></a>
+            </div>
+          </div>
+        </div>
+        <hr/>
+      </li>   
+          </ul>
+        </div>
+        </div>
+  </div>
 
-    <!-- Optional JavaScript -->
+    <!--JavaScript -->
+    <script type="text/javascript">
+    $('.post').tooltip('show');
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
