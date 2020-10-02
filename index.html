@@ -86,11 +86,12 @@
         </ul>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <h6><a class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
               LogIn
             </a></h6>
+          </li>
           <li class="nav-item">
-            <h6><a class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
               SignUp
             </a></h6>
           </li>
@@ -265,7 +266,7 @@
         </div>
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Ask Question</h5>
@@ -296,7 +297,7 @@
       });
       $('#myModal').on('shown.bs.modal', function () {
          $('#myInput').trigger('focus')
-      })
+      });
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
