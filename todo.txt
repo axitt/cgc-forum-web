@@ -1,0 +1,30 @@
+(part by part is fragmented by comment)
+
+1) nav bar
+flip between if user logged in or not
+
+2) Reply section
+when clicked check if logged in then
+ allow to reply and save with timestamps
+ else navigates page to login page
+
+3) Add Query section
+when clicked check if logged in then
+ allow to add ques and save with timestamps
+ else navigates page to login page
+
+4) store question in such a format so when it is find gives best possible result
+
+5)logged in member 
+log out 
+
+6)all listings- highlights, questions will come under foreach loop
+
+7)each object of questions list
+will have a)collection id and b)that particular user collection id
+reason- a)fetch all inside data question and subcollection ans
+        b)user id is needed to display that particular user info
+
+8)Formatting date (firebase timestamps 2020-08-02T09:06:23.648Z)
+ package must be available
+ if not extract date month(switch for name) year

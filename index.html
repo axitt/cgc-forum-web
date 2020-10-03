@@ -24,6 +24,17 @@
           color: white;
           background: #3B5998;
         }
+        .user-display-nav{
+          font-size: 25px;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+          border-radius: 50%;
+          color: white;
+          background: #3B5998;
+        }
         .question-box{
           width:90%
         }
@@ -87,6 +98,9 @@
           </li>
         </ul>
         <ul class="nav justify-content-end">
+          <!-- Check User is logged in or not -->
+
+          <!-- If not
           <li class="nav-item">
             <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
               LogIn
@@ -96,6 +110,11 @@
             <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
               SignUp
             </a></h6>
+          </li>
+          -->
+
+          <li class="nav-item">
+            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
           </li>
         </ul>
       </div>
@@ -298,7 +317,18 @@
       $('#myModal').on('shown.bs.modal', function () {
          $('#myInput').trigger('focus')
       });
-    </script>
+      $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : 'User Info <a href="#" class="close" data-dismiss="alert">&times;</a>',
+            content : '<div><h5>Demo Forum</h5><a href="./profile.html"><small class="text-muted">View Profile</small></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
+        });
+        $(document).on("click", ".popover .close" , function(){
+            $(this).parents(".popover").popover('hide');
+        });
+      });
+      </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
