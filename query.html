@@ -38,7 +38,6 @@
         .question-box{
           width:90%
         }
-
  
     </style>
 
@@ -93,9 +92,12 @@
           -->
 
           <li class="nav-item">
-            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
+            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
           </li>
 
+          <li class="nav-item">
+            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -107,41 +109,50 @@
     <!--Main Container Starts-->
     <div class="container question-box bg-white rounded shadow mt-5">
       <div class="media pt-4 pl-2">
-        <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
+        <p class="float-left user-display m-2">DF</p>
         <div class="media-body">
-            <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
-            <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-            <a data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply </small></a>
-            <small class="px-2 text-muted"> <i class="fa fa-comments-o"></i> 3 Answers</small>
-            <div class="collapse" id="collapseExample1">
+          <small class="text-muted">Demo Forum (1st Oct,2019)</small>
+          <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+          <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
+          <a data-toggle="collapse" href="#collapseReply" aria-expanded="false" aria-controls="collapseReply"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply </small></a>
+          <small class="px-2 text-muted"> <i class="fa fa-comments-o"></i> 3 Answers</small>
+          <a href="#"><small class="text-muted"><i class="fa fa-arrow-circle-up"></i> Upvote</small></a>
+          <div class="collapse" id="collapseReply">
                 <textarea class="form-control" rows="3" id="comment"></textarea>
                 <button type="button" class="btn btn-info mt-1">Reply</button>
-            </div>
-            <hr/>
+          </div>
+          <hr/>
 
 
             <div class="media">
-              <a href="/profile.html"><p class="float-left user-display m-2">RF</p></a>
+              <p class="float-left user-display m-2">RF</p>
               <div class="media-body">
-                  <a href="/profile.html"><small class="text-muted">Reply Forum (2nd Oct,2019)</small></a>
+                  <small class="text-muted">Reply Forum (2nd Oct,2019)</small>
                   <p class="text-primary">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit</p>
               </div>
             </div> 
             <div class="media">
-              <a href="/profile.html"><p class="float-left user-display m-2">RF</p></a>
+              <p class="float-left user-display m-2">RF</p>
               <div class="media-body">
-                  <a href="/profile.html"><small class="text-muted">Reply Forum (2nd Oct,2019)</small></a>
+                  <small class="text-muted">Reply Forum (2nd Oct,2019)</small>
                   <p class="text-primary">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit</p>
               </div>
             </div>   
             <div class="media">
-              <a href="/profile.html"><p class="float-left user-display m-2">RF</p></a>
+              <p class="float-left user-display m-2">RF</p>
               <div class="media-body">
-                  <a href="/profile.html"><small class="text-muted">Reply Forum (2nd Oct,2019)</small></a>
+                  <small class="text-muted">Reply Forum (2nd Oct,2019)</small>
                   <p class="text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               </div>
-            </div> 
+            </div>
+
+              <textarea class="form-control" rows="3" id="comment"></textarea>
+              <button type="button" class="btn btn-info mt-2">Reply</button>
+
         </div>
+        <ul class="nav justify-content-end">
+          <li><a href="#"><i class="fa fa-share-alt py-2 pr-4 text-secondary" style="font-size:20px" aria-hidden="true"></i></a></li>
+        </ul>
       </div>
       <hr/>  
 
@@ -152,10 +163,11 @@
           <li class="p-2">
            <br/>
            <div class="media">
-             <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
+             <p class="float-left user-display m-2">DF</p>
              <div class="media-body">
-                 <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
+                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
                  <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
                  <a data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
                  <div class="collapse" id="collapseExample1">
                      <textarea class="form-control" rows="3" id="comment"></textarea>
@@ -164,85 +176,59 @@
              </div>
            </div>
            <hr/>
-       </li>
+         </li>
+         <li class="p-2">
+           <br/>
+           <div class="media">
+             <p class="float-left user-display m-2">DF</p>
+             <div class="media-body">
+                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
+                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
+                 <a data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
+                 <div class="collapse" id="collapseExample2">
+                     <textarea class="form-control" rows="3" id="comment"></textarea>
+                     <button type="button" class="btn btn-info mt-1">Reply</button>
+                 </div>
+             </div>
+           </div>
+           <hr/>
+         </li>
+         <li class="p-2">
+           <br/>
+           <div class="media">
+             <p class="float-left user-display m-2">DF</p>
+             <div class="media-body">
+                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
+                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
+                 <a data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
+                 <div class="collapse" id="collapseExample3">
+                     <textarea class="form-control" rows="3" id="comment"></textarea>
+                     <button type="button" class="btn btn-info mt-1">Reply</button>
+                 </div>
+             </div>
+           </div>
+           <hr/>
+         </li>
+         <li class="p-2">
+           <br/>
+           <div class="media">
+             <p class="float-left user-display m-2">DF</p>
+             <div class="media-body">
+                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
+                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
+                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
+                 <a data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
+                 <div class="collapse" id="collapseExample4">
+                     <textarea class="form-control" rows="3" id="comment"></textarea>
+                     <button type="button" class="btn btn-info mt-1">Reply</button>
+                 </div>
+             </div>
+           </div>
+           <hr/>
+         </li>
 
-       <li class="p-2">
-         <div class="media">
-           <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
-           <div class="media-body">
-               <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
-               <a href="/query.html"><p class="card-text text-left"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</strong></p></a>
-               <a data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-               <div class="collapse" id="collapseExample2">
-                   <textarea class="form-control" rows="3" id="comment"></textarea>
-                   <button type="button" class="btn btn-info mt-1">Reply</button>
-               </div>
-           </div>
-         </div>
-         <hr/>
-     </li>
-     <li class="p-2">
-       <br/>
-       <div class="media">
-         <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
-         <div class="media-body">
-             <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
-             <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-             <a data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-             <div class="collapse" id="collapseExample3">
-                 <textarea class="form-control" rows="3" id="comment"></textarea>
-                 <button type="button" class="btn btn-info mt-1">Reply</button>
-             </div>
-         </div>
-       </div>
-       <hr/>
-   </li>
-   <li class="p-2">
-     <br/>
-     <div class="media">
-       <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
-       <div class="media-body">
-           <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
-           <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-           <a data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-           <div class="collapse" id="collapseExample4">
-               <textarea class="form-control" rows="3" id="comment"></textarea>
-               <button type="button" class="btn btn-info mt-1">Reply</button>
-           </div>
-       </div>
-     </div>
-     <hr/>
- </li>
-     <li class="p-2">
-       <div class="media">
-         <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
-         <div class="media-body">
-             <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
-             <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-             <a data-toggle="collapse" href="#collapseExample5" aria-expanded="false" aria-controls="collapseExample5"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-             <div class="collapse" id="collapseExample5">
-                 <textarea class="form-control" rows="3" id="comment"></textarea>
-                 <button type="button" class="btn btn-info mt-1">Reply</button>
-             </div>
-         </div>
-       </div>
-       <hr/>
-   </li>
-   <li class="p-2">
-     <div class="media">
-       <a href="/profile.html"><p class="float-left user-display m-2">DF</p></a>
-       <div class="media-body">
-           <a href="/profile.html"><small class="text-muted">Demo Forum (1st Oct,2019)</small></a>
-           <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-           <a data-toggle="collapse" href="#collapseExample6" aria-expanded="false" aria-controls="collapseExample6"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-           <div class="collapse" id="collapseExample6">
-               <textarea class="form-control" rows="3" id="comment"></textarea>
-               <button type="button" class="btn btn-info mt-1">Reply</button>
-           </div>
-       </div>
-     </div>
-     <hr/>
-   </li>   
        </ul>
 
       </div>
@@ -252,15 +238,26 @@
 
     <!--JavaScript -->
     <script type="text/javascript">
-          $(document).ready(function(){
+      $(document).ready(function(){
         $('[data-toggle="popover"]').popover({
             placement : 'bottom',
             html : true,
-            title : 'User Info <a href="#" class="close" data-dismiss="alert">&times;</a>',
-            content : '<div><h5>Demo Forum</h5><a href="./profile.html"><small class="text-muted">View Profile</small></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
+            title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
         });
         $(document).on("click", ".popover .close" , function(){
             $(this).parents(".popover").popover('hide');
+        });
+      });
+      $(document).ready(function(){
+        $('[data-toggle="popover2"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
+        });
+        $(document).on("click", ".popover2 .close" , function(){
+            $(this).parents(".popover2").popover('hide');
         });
       });
     </script>

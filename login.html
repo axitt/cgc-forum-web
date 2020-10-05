@@ -101,9 +101,12 @@
           -->
 
           <li class="nav-item">
-            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
+            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
           </li>
 
+          <li class="nav-item">
+            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -152,15 +155,26 @@
 
     <!--JavaScript -->
     <script type="text/javascript">
-          $(document).ready(function(){
+      $(document).ready(function(){
         $('[data-toggle="popover"]').popover({
             placement : 'bottom',
             html : true,
-            title : 'User Info <a href="#" class="close" data-dismiss="alert">&times;</a>',
-            content : '<div><h5>Demo Forum</h5><a href="./profile.html"><small class="text-muted">View Profile</small></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
+            title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
         });
         $(document).on("click", ".popover .close" , function(){
             $(this).parents(".popover").popover('hide');
+        });
+      });
+      $(document).ready(function(){
+        $('[data-toggle="popover2"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
+        });
+        $(document).on("click", ".popover2 .close" , function(){
+            $(this).parents(".popover2").popover('hide');
         });
       });
     </script>
