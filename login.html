@@ -47,8 +47,11 @@
         .question-box{
           width:90%
         }
-
-        
+        @media (min-width: 992px) { 
+          .form-container{
+            width:40%;
+          }
+        }   
     </style>
   </head>
   <body class="bg-light">
@@ -120,12 +123,9 @@
     </a>
     
     <!-- Login container starts-->
-    <div class="container question-box mt-3 bg-white rounded shadow p-3">
+    <div class="container question-box mt-3 mb-4 bg-white rounded shadow p-3 form-container">
         <p class="text-center text-secondary" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px;" >Log In to Your Account</p>
-        <!--2 row divison Input and oAuth-->
-        <div class="row">
           <!--Input-->
-         <div class="col-sm p-2 m-2 border-right">
           <form class="container">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
@@ -135,23 +135,23 @@
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
             </div>
-            <a href="#forgot password"><small class="text-muted d-block">Forgot Password</small></a><br/>
+            <div class="form-group">
+              <a href="#forgot password"><small class="text-muted d-block">Forgot Password</small></a>
+            </div>
             <button type="submit" class="btn btn-info">Login</button>
+            <hr/>
           </form>
-         </div>
-         <!--oAuth-->
-         <div class="col-sm m-4">
+          <div class="mx-auto" style="width: 200px;">
             <a href="#" class="fb p-2 d-block social-btn text-center">
                <i class="fa fa-facebook" style="font-size:20px"></i>  Login with Facebook
             </a>
             <a href="#" class="gmail p-2 d-block social-btn text-center">
                 <i class="fa fa-google" style="font-size:20px"></i>  Login with Gmail
-            </a><br/>
-            <a href="/signup.html"><small class="text-muted text-center d-block">Need a Account? Create new</small></a>
-         </div>
+            </a>
+            <a href="/signup.html"><small class="text-muted text-center d-block">Need an Account? Create new</small></a>
+            </div>
         </div>
-    </div>
-    <!--Login form ends-->
+        <!--Login form ends-->
 
     <!--JavaScript -->
     <script type="text/javascript">
