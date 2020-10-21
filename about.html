@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- jQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CGC Forum</title>
+    <!-- CSS -->
+    <style type="text/css">
+        .user-display-nav{
+          font-size: 25px;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+          border-radius: 50%;
+          color: white;
+          background: #3B5998;
+        }
+        .parallax1 {
+         background-image: url("jumbotron.jpg");
+         min-height: 600px;
+         width:100%; 
+         background-attachment: fixed;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+        }
+        .parallax2 {
+         background-image: url("forum-to.gif");
+         min-height: 600px; 
+         width:100%;
+         background-attachment: fixed;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+        }
+        .profile-bg {
+          background-image: url("dsc.png");
+          min-height: 100px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: content;
+        }
+        .card{
+          transition: 0.5s ease;
+        }
+        .card:hover{
+          transform:translate(0px,-70px);
+          transform: scale(1.4,1.4);
+        }
+        #contact-us{
+          width:50%;
+        }
+        .foot-1{
+          background-color: rgb(65, 63, 63);
+          width:100%;
+        }
+        .move-foot-elem{
+          margin-right: 25%;
+        }
+        .foot-2{
+          background-color: rgb(29, 29, 29);
+          width:100%;
+        }
+        @media (max-width: 767.98px) {
+          .parallax2 {
+           background-image: url("forum-to-potrait.gif");
+           min-height: 600px;
+           width:100%; 
+           background-attachment: fixed;
+           background-position: center;
+           background-repeat: no-repeat;
+           background-size: cover;
+          } 
+          .profile-bg {
+          background : none;
+          }
+          #contact-us{
+            width:75%;
+          }
+          .card{
+          transition: 0.5s ease;
+          }
+          .card:hover{
+            transform:translate(0px,-70px);
+            transform: scale(1.2,1.2);
+          }
+        }
+    </style>
+  </head>
+  <body class="bg-light">
+    <!-- nav bar starts-->
+    <nav class="navbar navbar-expand-lg text-white navbar-light fixed-top position-absolute" style = "font-family:Verdana, Geneva, sans-serif">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
+      </a>
+      <button class="navbar-toggler collapse-nav-btn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <ul class="nav justify-content-end">
+          <!-- Check User is logged in or not -->
+
+          <!-- If not
+          <li class="nav-item">
+            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+              LogIn
+            </a></h6>
+          </li>
+          <li class="nav-item">
+            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+              SignUp
+            </a></h6>
+          </li>
+          -->
+
+          <li class="nav-item">
+            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
+          </li>
+
+          <li class="nav-item">
+            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--nav bar ends-->
+        <div class="jumbotron parallax1 text-center m-0" style = "font-family:Trebuchet MS, Helvetica, sans-serif">
+            <h1 class="display-4">About Us</h1><br/>
+            <p class="lead"><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</strong></p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+              <a class="btn btn-lg btn-outline-dark" href="#contact-us" role="button">Contact Us</a>
+            </p>
+        </div>
+        <div class="profile-bg">
+          <div class="card-deck py-5 mx-5">
+              <div class="card">
+                  <img class="card-img-top" src="./about.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+              </div>
+              <div class="card">
+                  <img class="card-img-top" src="./about.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+              </div>
+              <div class="card">
+                  <img class="card-img-top" src="./about.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+        <div class="parallax2">
+        </div>
+          <div id="contact-us" class="container my-5 justify-content-center">
+            <h1 class="text-center">Contact Us</h1>
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Work Email</label>
+                <input type="email" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputSubject">Subject</label>
+                <input type="email" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+              </div>
+              <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+          </div>
+            <div class="foot-1">
+            <nav class="navbar">
+            <ul class="navbar-nav mr-auto ml-5 mt-3">
+              <li class="nav-item">
+                  <a class="navbar-brand" href="#">
+                    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
+                  </a>
+             </li>
+             <li class="nav-item"><a href="#" class="fa fa-facebook" style="color:#3B5998;"><span class="text-white"> Facebook</span></a></li>
+             <li class="nav-item"><a href="#" class="fa fa-instagram" style="color:#ea4c89"><span class="text-white"> Instagram</span></a></li>
+             <li class="nav-item"><a href="#" class="fa fa-linkedin" style="color:#007bb5"><span class="text-white"> Linkedin</span></a></li>
+             <li class="nav-item"><a href="#" class="fa fa-youtube" style="color:#bb0000"><span class="text-white"> Youtube</span></a></li>
+             <li class="nav-item"><a href="#" class="fa fa-twitter" style="color:#55ACEE;"><span class="text-white"> Twitter</span></a></li>
+            </ul>
+            <ul class="navbar-nav move-foot-elem justify-content-center">
+              <li class="nav-item text-muted">Links</li>
+              <li class="nav-item"><a href="/index.html" class="text-white">Home</a></li>
+              <li class="nav-item"><a href="/about.html" class="text-white">About</a></li>
+              <li class="nav-item"><a href="/profile.html" class="text-white">Profile</a></li>
+              <li class="nav-item"><a href="#contact-us" class="text-white">Contact Us</a></li>
+            </ul>
+            </nav>
+          </div>
+          <p class="foot-2 text-muted pl-5 mb-0">&copy; DSC CGC 2020-2021</p>
+
+
+    <!--JavaScript -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
+        });
+        $(document).on("click", ".popover .close" , function(){
+            $(this).parents(".popover").popover('hide');
+        });
+      });
+      $(document).ready(function(){
+        $('[data-toggle="popover2"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
+        });
+        $(document).on("click", ".popover2 .close" , function(){
+            $(this).parents(".popover2").popover('hide');
+        });
+      });
+      var i=1;
+        $(".collapse-nav-btn").click(function(){
+          if(i%2!=0)
+          {
+          $(".navbar").css("background-color","#44bfee");
+          $(".nav-link").css("color","white");
+          i++;
+          }
+          else{
+            $(".navbar").css("background","none");
+            $(".nav-link").css("color","black");
+            i++;
+          }
+        });
+      </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
