@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- jQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    <title>CGC Forum</title>
+    <title>CGC Forum</title>
+    <!-- CSS -->
+    <style type="text/css">
+        .user-display{
+          font-size: 20px;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+          border-radius: 50%;
+          color: white;
+          background: #3B5998;
+        }
+        .user-display-nav{
+          font-size: 25px;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+          border-radius: 50%;
+          color: white;
+          background: #3B5998;
+        }
+        .question-box{
+          width:90%
+        }
+        .highlight{
+          background-color: #18a2b8;
+          color:white;
+        }
+        .post{
+          height:55px;
+          width:55px;
+          border-radius:50%;
+          position:fixed;
+          top:85%;
+          left:85%;
+          text-align:center;
+          padding-left: 12px;
+          padding-top: 8px;
+          z-index:1;
+          color:white;
+        }
+        .compose-name {
+           padding: 10px 20px;
+           font-size: 20px;
+           border-radius: 50px;
+        }
+        #rotate{
+         vertical-align:top;
+	       transform:rotate(7deg);
+         -ms-transform:rotate(270deg); /* IE 9 */
+         -moz-transform:rotate(270deg); /* Firefox */
+         -webkit-transform:rotate(270deg); /* Safari and Chrome */
+         -o-transform:rotate(270deg); /* Opera */
+        }  
+        .btn-fvrt{
+          position:fixed;
+          right:-25px;
+          top:250px;
+        }
+        .btn-sell{
+          position: fixed;
+          right:-17px;
+          top:370px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <!-- nav bar starts-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info text-white fixed-top">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="/index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/olx.html">Olx</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <ul class="nav justify-content-end">
+          <!-- Check User is logged in or not -->
+
+          <!-- If not
+          <li class="nav-item">
+            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+              LogIn
+            </a></h6>
+          </li>
+          <li class="nav-item">
+            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+              SignUp
+            </a></h6>
+          </li>
+          -->
+
+          <li class="nav-item">
+            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
+          </li>
+
+          <li class="nav-item">
+            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--nav bar ends-->
+    <br/>
+    <br/><br/><hr/>
+    <nav class="navbar d-flex justify-content-center navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Category
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Electronics</a>
+                <a class="dropdown-item" href="#">Book</a>
+                <a class="dropdown-item" href="#">Apprel</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sort
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">High to Low</a>
+                  <a class="dropdown-item" href="#">Low to High</a>
+                  <a class="dropdown-item" href="#">Latest Arrival</a>
+                </div>
+              </li>  
+          </ul>
+      </nav>
+      <a href="favourite.html" class="btn btn-warning btn-fvrt" id="rotate" data-toggle="tooltip" data-placement="left" title="Your Favourite List">My Favourite</a>
+      <a href="sell.html" class="btn btn-success btn-sell" id="rotate" data-toggle="tooltip" data-placement="left" title="Click to sell">Sell on Olx</a>
+<hr/>
+<div class="container">
+    <div class="card-deck m-5">
+        <div class="card m-2 border-0">
+          <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+          <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">Prestige Kettle 2 month old</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+          <div class="card m-2 border-0">
+            <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+            <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">M-I Selina Publication Maths Book</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+          <div class="card m-2 border-0">
+            <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+            <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">Whirlpool Induction</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+          <div class="card m-2 border-0">
+            <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+            <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">Semiconductor Physics for BTech 1st year</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+    </div>
+    <div class="card-deck m-5">
+        <div class="card m-2 border-0">
+          <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+          <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">Prestige Kettle 2 month old</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+          <div class="card m-2 border-0">
+            <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+            <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">M-I Selina Publication Maths Book</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+          <div class="card m-2 border-0">
+            <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+            <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">Whirlpool Induction</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+          <div class="card m-2 border-0">
+            <a href="/product.html"><img class="card-img-top" src="/alberto.png" alt="Card image cap"></a>
+            <div class="card-body m-0 p-1">
+              <a href="/product.html"><div class="card-text text-dark" style="font-family:Times New Roman, Times, serif;">Semiconductor Physics for BTech 1st year</div></a>
+              <p class="card-text"><strong>Rs. 200.00 </strong><small><del>Rs. 400.00</del></small></p>
+              <a href="/product.html" class="btn btn-info">Buy here</a>
+            </div>
+          </div>
+    </div>
+
+
+</div>
+  <!--Main container ends-->
+
+    <!--JavaScript -->
+    <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+      });
+      $('#myModal').on('shown.bs.modal', function () {
+         $('#myInput').trigger('focus')
+      });
+      $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
+        });
+        $(document).on("click", ".popover .close" , function(){
+            $(this).parents(".popover").popover('hide');
+        });
+      });
+      $(document).ready(function(){
+        $('[data-toggle="popover2"]').popover({
+            placement : 'bottom',
+            html : true,
+            title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+            content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
+        });
+        $(document).on("click", ".popover2 .close" , function(){
+            $(this).parents(".popover2").popover('hide');
+        });
+      });
+      </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
