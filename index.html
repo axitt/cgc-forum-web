@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!--firebase files-->
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +18,13 @@
     <title>CGC Forum</title>
     <!-- CSS -->
     <style type="text/css">
+      #queries li:nth-child(n+6) {
+    display:none;
+}
+#readmore {
+    cursor: pointer;
+    color: #f00;
+}
         .user-display{
           font-size: 20px;
           width: 30px;
@@ -66,86 +78,23 @@
   </head>
   <body class="bg-light">
     <!-- nav bar starts-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info text-white fixed-top">
-      <a class="navbar-brand" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-white" href="/index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/olx.html">Olx</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <ul class="nav justify-content-end">
-          <!-- Check User is logged in or not -->
-
-          <!-- If not
-          <li class="nav-item">
-            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              LogIn
-            </a></h6>
-          </li>
-          <li class="nav-item">
-            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              SignUp
-            </a></h6>
-          </li>
-          -->
-
-          <li class="nav-item">
-            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
-          </li>
-
-          <li class="nav-item">
-            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div id="main-bar"></div>
+    <script>
+      $("#main-bar").load("nav.html");
+    </script>
     <!--nav bar ends-->
+
 
     <!--Search for query form starts-->
     <br/>
     <br/>
-    <!--<form class="container w-75 mt-5 mb-3">
-      <div class="form-group">
-        <input type="search" class="form-control" id="search-quora" placeholder="eg. best course on machine learning" aria-describedby="cgc-quora">
-      </div>
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> Find my query</button>
-      </div>
-    </form>-->
     <form class="container w-75 mt-5 mb-3">
     <div class="row">
       <div class="col-sm-10 mt-2">
-        <input type="search" class="form-control" id="search-quora" placeholder="eg. best course on machine learning" aria-describedby="cgc-quora">
+        <input onkeyup="search()" type="search" class="form-control" id="search-quora" placeholder="eg. best course on machine learning" aria-describedby="cgc-quora" value="">
       </div>
       <div class="col-sm mt-2 d-flex justify-content-center">
-        <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> Find query</button>
+        <button type="button" onclick="search()" class="btn btn-info"><i class="fa fa-search"></i> Find query</button>
       </div>
     </div>
   </form>
@@ -156,7 +105,7 @@
 
         <!-- Floating Post sign at bottom right start-->
         <div data-toggle="modal" data-target="#exampleModal">
-         <button class="post btn btn-info" type="button" data-toggle="tooltip" data-placement="top" title="Post your query"><i class="fa fa-plus" style="font-size:24px"></i></button>
+         <button class="add-query post btn btn-info" type="button" data-toggle="tooltip" data-placement="top" title="Post your query"><i class="fa fa-plus" style="font-size:24px"></i></button>
         </div>
         <!-- Floating Post sign ends-->
 
@@ -166,7 +115,7 @@
             <!--Highlight section-->
             <div class="col-sm-4">
               <div class="d-flex justify-content-center">
-                <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-info compose-name mt-4 shadow text-center"><i class="fa fa-plus" style="font-size:24px"></i>  Add new query</button>
+                <button type="button" data-toggle="modal" data-target="#exampleModal" class="add-query btn btn-info compose-name mt-4 shadow text-center"><i class="fa fa-plus" style="font-size:24px"></i>  Add new query</button>
               </div>
               <div class="list-group mx-3 my-3">
                 <button type="button" class="list-group-item highlight">
@@ -199,80 +148,13 @@
                 </a>
               </div>
             </div>
-            <!--Question Section-->
+             <!--Question Section-->
             <div class="col-sm-8">
-            <ul style="list-style-type:none;">
-             <li class="p-2">
-              <br/>
-              <div class="media">
-                <p class="float-left user-display m-2">DF</p>
-                <div class="media-body">
-                    <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                    <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                    <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                    <a data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                    <div class="collapse" id="collapseExample1">
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
-                        <button type="button" class="btn btn-info mt-1">Reply</button>
-                    </div>
-                </div>
-              </div>
-              <hr/>
-            </li>
-            <li class="p-2">
-              <br/>
-              <div class="media">
-                <p class="float-left user-display m-2">DF</p>
-                <div class="media-body">
-                    <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                    <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                    <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                    <a data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                    <div class="collapse" id="collapseExample2">
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
-                        <button type="button" class="btn btn-info mt-1">Reply</button>
-                    </div>
-                </div>
-              </div>
-              <hr/>
-            </li>
-            <li class="p-2">
-              <br/>
-              <div class="media">
-                <p class="float-left user-display m-2">DF</p>
-                <div class="media-body">
-                    <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                    <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                    <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                    <a data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                    <div class="collapse" id="collapseExample3">
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
-                        <button type="button" class="btn btn-info mt-1">Reply</button>
-                    </div>
-                </div>
-              </div>
-              <hr/>
-            </li>
-            <li class="p-2">
-              <br/>
-              <div class="media">
-                <p class="float-left user-display m-2">DF</p>
-                <div class="media-body">
-                    <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                    <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                    <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                    <a data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                    <div class="collapse" id="collapseExample4">
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
-                        <button type="button" class="btn btn-info mt-1">Reply</button>
-                    </div>
-                </div>
-              </div>
-              <hr/>
-            </li>
+            <ul id="queries" style="list-style-type:none;">
+             
 
           </ul>
-        </div>
+          <span id="readmore">readmore</span>
         </div>
         <!--Modal popup to post-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -285,7 +167,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form>
+                <form id="post">
                   <div class="form-group">
                     <label for="title">Title</label>
                     <textarea class="form-control" rows="2" id="title"></textarea>
@@ -294,52 +176,66 @@
                     <label for="details">Details</label>
                     <textarea class="form-control" rows="6" id="details"></textarea>
                   </div>
+                  <div>
+                    <p id="query-error" style="color: red;"></p>
+                  </div>
                 </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info">Post</button>
+                <button type="submit" id="querysubmit" class="btn btn-info">Post</button>
               </div>
             </div>
           </div>
         </div>
   </div>
   <!--Main container ends-->
-
-    <!--JavaScript -->
-    <script type="text/javascript">
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-      });
-      $('#myModal').on('shown.bs.modal', function () {
-         $('#myInput').trigger('focus')
-      });
-      $(document).ready(function(){
-        $('[data-toggle="popover"]').popover({
-            placement : 'bottom',
-            html : true,
-            title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
-            content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
-        });
-        $(document).on("click", ".popover .close" , function(){
-            $(this).parents(".popover").popover('hide');
-        });
-      });
-      $(document).ready(function(){
-        $('[data-toggle="popover2"]').popover({
-            placement : 'bottom',
-            html : true,
-            title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
-            content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
-        });
-        $(document).on("click", ".popover2 .close" , function(){
-            $(this).parents(".popover2").popover('hide');
-        });
-      });
-      </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="firebase-setup.js"></script>
+    <script type="text/javascript" src="navbar-auth.js"></script>
+    <script type="text/javascript" src="query-fire.js"></script>
+    <script type="text/javascript" src="firebase-show-query.js"></script>
+    <script type="text/javascript" src="firebase-reply.js"></script>
   </body>
 </html>
+  <script>
+  $(".add-query").click(function(){
+ if(!auth.currentUser)
+ {
+   window.location="login.html";
+ }
+});
+</script>
+<script>
+  function search() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("search-quora");
+      filter = input.value.toUpperCase();
+      if(filter!="")
+      {
+      document.getElementById("queries").style.display="block";
+      }
+      ul = document.getElementById("queries");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "block";
+          } else {
+              li[i].style.display = "none";
+          }
+      }
+  }
+  $(function () {
+    $('#readmore').click(function () {
+        $('#queries li:hidden').slice(0,5).show();
+        if ($('#queries li').length == $('#queries li:visible').length) {
+            $('#readmore').hide();
+        }
+    });
+});
+</script>
