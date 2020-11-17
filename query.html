@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!--firebase files-->
+     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,67 +49,11 @@
 
   </head>
   <body class="bg-light">
-    <!-- nav bar starts-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info text-white fixed-top">
-      <a class="navbar-brand" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-white" href="/index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/olx.html">Olx</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <ul class="nav justify-content-end">
-          <!-- Check User is logged in or not -->
-
-          <!-- If not
-          <li class="nav-item">
-            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              LogIn
-            </a></h6>
-          </li>
-          <li class="nav-item">
-            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              SignUp
-            </a></h6>
-          </li>
-          -->
-
-          <li class="nav-item">
-            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
-          </li>
-
-          <li class="nav-item">
-            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+     <!-- nav bar starts-->
+    <div id="main-bar"></div>
+    <script>
+      $("#main-bar").load("nav.html");
+    </script>
     <!--nav bar ends-->
 
     <br/>
@@ -112,125 +62,42 @@
     <!--Main Container Starts-->
     <div class="container question-box bg-white rounded shadow mt-5">
       <div class="media pt-4 pl-2">
-        <p class="float-left user-display m-2">DF</p>
+        <img id="profile-pic" class="float-left user-display m-2">
         <div class="media-body">
-          <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-          <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-          <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
+          <small id="info" class="text-muted"></small>
+          <a style="color: blue;"><p style="font-weight: bold;" id="title" class="card-text text-left"></p></a>
+          <a style="color: blue;"><p id="content" class="card-text text-left"></p></a>
           <a data-toggle="collapse" href="#collapseReply" aria-expanded="false" aria-controls="collapseReply"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply </small></a>
-          <small class="px-2 text-muted"> <i class="fa fa-comments-o"></i> 3 Answers</small>
+          <a href="#"><i class="text-muted fa fa-comments-o"></i><small id="answers" class="px-2 text-muted"></small></a>
           <a href="#"><small class="text-muted"><i class="fa fa-arrow-circle-up"></i> Upvote</small></a>
           <div class="collapse" id="collapseReply">
-                <textarea class="form-control" rows="3" id="comment"></textarea>
-                <button type="button" class="btn btn-info mt-1">Reply</button>
+            <form onsubmit="return reply()">
+                <input type="text" name="comment" class="form-control" rows="3" id="comment">
+                <input type="hidden" name="id" value="" id="query-id">
+                <button type="submit" class="btn btn-info mt-1">Reply</button>
+            </form>
           </div>
           <hr/>
-
-
-            <div class="media">
-              <p class="float-left user-display m-2">RF</p>
-              <div class="media-body">
-                  <small class="text-muted">Reply Forum (2nd Oct,2019)</small>
-                  <p class="text-primary">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit</p>
-              </div>
-            </div> 
-            <div class="media">
-              <p class="float-left user-display m-2">RF</p>
-              <div class="media-body">
-                  <small class="text-muted">Reply Forum (2nd Oct,2019)</small>
-                  <p class="text-primary">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit</p>
-              </div>
-            </div>   
-            <div class="media">
-              <p class="float-left user-display m-2">RF</p>
-              <div class="media-body">
-                  <small class="text-muted">Reply Forum (2nd Oct,2019)</small>
-                  <p class="text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              </div>
-            </div>
-
-              <textarea class="form-control" rows="3" id="comment"></textarea>
-              <button type="button" class="btn btn-info mt-2">Reply</button>
-
+<!--replies-->
+<div id="replies">
+           
+</div>
+            <form onsubmit="return reply()">
+              <input type="text" name="comment" class="form-control" rows="3" id="comment">
+              <input type="hidden" name="id" value="" id="query-id2">
+              <button type="submit" class="btn btn-info mt-1">Reply</button>
+          </form>
         </div>
         <ul class="nav justify-content-end">
           <li><a href="#"><i class="fa fa-share-alt py-2 pr-4 text-secondary" style="font-size:20px" aria-hidden="true"></i></a></li>
         </ul>
       </div>
-      <hr/> 
+      <hr/>  
 
 
       <div class="mt-3">
         <p class="text-muted text-center" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 35px;">Latest</p>
-        <ul style="list-style-type:none;">
-          <li class="p-2">
-           <br/>
-           <div class="media">
-             <p class="float-left user-display m-2">DF</p>
-             <div class="media-body">
-                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                 <a data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                 <div class="collapse" id="collapseExample1">
-                     <textarea class="form-control" rows="3" id="comment"></textarea>
-                     <button type="button" class="btn btn-info mt-1">Reply</button>
-                 </div>
-             </div>
-           </div>
-           <hr/>
-         </li>
-         <li class="p-2">
-           <br/>
-           <div class="media">
-             <p class="float-left user-display m-2">DF</p>
-             <div class="media-body">
-                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                 <a data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                 <div class="collapse" id="collapseExample2">
-                     <textarea class="form-control" rows="3" id="comment"></textarea>
-                     <button type="button" class="btn btn-info mt-1">Reply</button>
-                 </div>
-             </div>
-           </div>
-           <hr/>
-         </li>
-         <li class="p-2">
-           <br/>
-           <div class="media">
-             <p class="float-left user-display m-2">DF</p>
-             <div class="media-body">
-                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                 <a data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                 <div class="collapse" id="collapseExample3">
-                     <textarea class="form-control" rows="3" id="comment"></textarea>
-                     <button type="button" class="btn btn-info mt-1">Reply</button>
-                 </div>
-             </div>
-           </div>
-           <hr/>
-         </li>
-         <li class="p-2">
-           <br/>
-           <div class="media">
-             <p class="float-left user-display m-2">DF</p>
-             <div class="media-body">
-                 <small class="text-muted">Demo Forum (1st Oct,2019)</small>
-                 <a href="/query.html"><p class="card-text text-left"><strong>I am in 1st year should i start learning coding from now</strong></p></a>
-                 <a href="/query.html"><p class="card-text text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></a>
-                 <a data-toggle="collapse" href="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply</small></a>
-                 <div class="collapse" id="collapseExample4">
-                     <textarea class="form-control" rows="3" id="comment"></textarea>
-                     <button type="button" class="btn btn-info mt-1">Reply</button>
-                 </div>
-             </div>
-           </div>
-           <hr/>
-         </li>
+        <ul id="queries" style="list-style-type:none;">
 
        </ul>
 
@@ -268,5 +135,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="firebase-setup.js"></script>
+    <script src="navbar-auth.js"></script>
+    <script src="firebase-querypage.js"></script>
+    <script src="firebase-reply.js"></script>
   </body>
 </html>
