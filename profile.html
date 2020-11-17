@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!--firebase files-->
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
+   
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,67 +44,11 @@
     </style>
   </head>
   <body class="bg-light">
-    <!-- nav bar starts-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info text-white fixed-top">
-      <a class="navbar-brand" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-white" href="/index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/olx.html">Olx</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <ul class="nav justify-content-end">
-          <!-- Check User is logged in or not -->
-
-          <!-- If not
-          <li class="nav-item">
-            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              LogIn
-            </a></h6>
-          </li>
-          <li class="nav-item">
-            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              SignUp
-            </a></h6>
-          </li>
-          -->
-
-          <li class="nav-item">
-            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
-          </li>
-
-          <li class="nav-item">
-            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+     <!-- nav bar starts-->
+    <div id="main-bar"></div>
+    <script>
+      $("#main-bar").load("nav.html");
+    </script>
     <!--nav bar ends-->
 
     <!--Login form starts-->
@@ -111,45 +61,23 @@
     <!-- Login container starts-->
     <div class="container mt-3 bg-white rounded shadow p-3 ">
         <div class="media">
-            <p class="float-left user-display m-2">DF</p>
+            <img class="float-left user-display" id="show-profile" style="border-style: none;background-color: white;"/>
             <div class="media-body">
-              <h5 class="mt-0">Demo Forum</h5>
-              <p><span class="text-muted">Email- </span>demo@forum.com</p>
-              <p><span class="text-muted">Mobile no.- </span>9898 XXXX XX</p>
-              <p><span class="text-muted">Department- </span>Engineering</p>
+              <h5 id="displayname" class="mt-0"></h5>
+              <p class="text-muted">Email- <span id="email" style="color: black;"></span></p>
+              <p class="text-muted">Mobile no.- <span  id="phone" style="color: black;"></span></p>
+              <p class="text-muted">Department-<span id="department" style="color: black;"> </span></p>
             </div> 
           </div>
     </div>
     <!--Login form ends-->
-
     <!--JavaScript -->
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('[data-toggle="popover"]').popover({
-            placement : 'bottom',
-            html : true,
-            title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
-            content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
-        });
-        $(document).on("click", ".popover .close" , function(){
-            $(this).parents(".popover").popover('hide');
-        });
-      });
-      $(document).ready(function(){
-        $('[data-toggle="popover2"]').popover({
-            placement : 'bottom',
-            html : true,
-            title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
-            content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
-        });
-        $(document).on("click", ".popover2 .close" , function(){
-            $(this).parents(".popover2").popover('hide');
-        });
-      });
-    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="firebase-setup.js"></script>
+    <script src="navbar-auth.js"></script>
+    <script src="firebase-profile.js"></script>
   </body>
 </html>
