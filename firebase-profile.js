@@ -1,0 +1,14 @@
+auth.onAuthStateChanged(user=>{
+    if(user)
+    {
+     db.collection("signup").doc(user.uid).get().then(function(doc){
+        if(doc.exists){
+            document.getElementById("displayname").innerHTML=doc.data().name;
+            document.getElementById("email").innerHTML=doc.data().email;
+            document.getElementById("phone").innerHTML=doc.data().phoneno
+            document.getElementById("department").innerHTML=doc.data().department;
+            document.getElementById("show-profile").src=user.photoURL;
+        }
+    })
+    }
+});
