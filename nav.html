@@ -10,13 +10,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="/index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="index.html"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/about.html">About</a>
+            <a class="nav-link text-white" href="about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/olx.html">Olx</a>
+            <a class="nav-link text-white" href="olx.html">Olx</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,30 +33,54 @@
             <a class="nav-link disabled text-white" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <ul class="nav justify-content-end">
-          <!-- Check User is logged in or not -->
+        <ul class="nav justify-content-end" id="logedout" style="display: none;">
+           <!-- Check User is logged in or not -->
+<!--if user is logged out-->
+      <li class="nav-item">
+        <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+          LogIn
+        </a></h6>
+      </li>
+      <li class="nav-item">
+        <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
+          SignUp
+        </a></h6>
+      </li>
 
-          <!-- If not
-          <li class="nav-item">
-            <h6><a href="login.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              LogIn
-            </a></h6>
-          </li>
-          <li class="nav-item">
-            <h6><a href="signup.html" class="badge badge-primary text-wrap mx-2 shadow-sm rounded" style="width: 6rem;">
-              SignUp
-            </a></h6>
-          </li>
-          -->
+    </ul>
+<!--if user logged in-->
+    <ul class="nav justify-content-end" id="logedin" style="display: none;">
+      <li class="nav-item">
+        <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
+      </li>
 
-          <li class="nav-item">
-            <div class="mr-4 mt-2" data-toggle="popover2" id="pop-over2" style="font-size:24px"><i class="fa fa-bell"></i></div>
-          </li>
-
-          <li class="nav-item">
-            <a type="button" data-toggle="popover" id="pop-over"><p class="user-display-nav mr-4 shadow">DF</p></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!--nav bar ends-->
+      <li class="nav-item">
+        <a style="border-radius: 50%;" type="button" data-toggle="popover" id="pop-over"><img style="border-radius: 50%;" class="user-display-nav" id="show-profile-nav"/></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover({
+        placement : 'bottom',
+        html : true,
+        title : 'I\'m <strong class="mr-5"> Demo Forum </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+        content : '<div><a href="./profile.html"><p class="text-muted">View my Profile</p></a><hr/><div class="d-flex justify-content-center"><a type="button" href="logout.html" class="btn btn-info"><i class="fa fa-sign-out"></i> Log out</a></div></div>'
+    });
+    $(document).on("click", ".popover .close" , function(){
+        $(this).parents(".popover").popover('hide');
+    });
+  });
+  $(document).ready(function(){
+    $('[data-toggle="popover2"]').popover({
+        placement : 'bottom',
+        html : true,
+        title : '<strong class="mr-5"> Notification </strong> <a href="#" class="close ml-5" data-dismiss="alert">&times;</a>',
+        content : '<div><ul><li><a class="text-dark" href="#">Notification 1</a></li></ul></div>'
+    });
+    $(document).on("click", ".popover2 .close" , function(){
+        $(this).parents(".popover2").popover('hide');
+    });
+  });
+</script>
