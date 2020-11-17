@@ -15,8 +15,13 @@ window.addEventListener('load',()=>{
           userName:user.displayName,
           userProfileImageUrl:user.photoURL
       }).then(function(){
+        const increment = firebase.firestore.FieldValue.increment(1);
+          db.collection('questions').doc(id).update({
+              replyCount:increment
+          }).then(function(){
           console.log("added");
           window.location="index.html";
+          })
       })
     }
 }
