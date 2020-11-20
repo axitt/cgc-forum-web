@@ -44,7 +44,7 @@ function printqueries(doc){
     "</small><a href=\"query.html?id="+li+"\"><p class=\"card-text text-left\"><strong>"+p+"</strong></p></a>"+
     "<a href=\"query.html\"><p class=\"card-text text-left\">"+p2+"</p></a>"+"<a data-toggle=\"collapse\" href=#"+collapseExample+number.toString()+" aria-expanded=\"false\" aria-controls="+collapseExample+number.toString()+"><small class=\"text-muted reply-hover\"><i class=\"fa fa-reply\"></i> Reply</small></a>"+
     "<div class=\"collapse\" id="+collapseExample+number.toString()+">"+
-    "<form onsubmit=\"return reply()\"><input type=\"text\" name=\"comment\" class=\"form-control\" rows=\"3\" id=\"comment"+number.toString()+"\">"+"<input type=\"hidden\" name=\"id\" value="+li+">"+
+    "<form onsubmit=\"return reply()\"><textarea type=\"text\" name=\"comment\" class=\"form-control\" rows=\"3\" id=\"comment"+number.toString()+"\"></textarea>"+"<input type=\"hidden\" name=\"id\" value="+li+">"+
     "<button type=\"submit\" class=\"btn btn-info mt-1\">Reply</button></form>"+
     "</div></div></div><hr/></li>");
 }

@@ -65,15 +65,15 @@
         <img id="profile-pic" class="float-left user-display m-2">
         <div class="media-body">
           <small id="info" class="text-muted"></small>
-          <a style="color: blue;"><p style="font-weight: bold;" id="title" class="card-text text-left"></p></a>
-          <a style="color: blue;"><p id="content" class="card-text text-left"></p></a>
+          <a href="#"><p style="font-weight: bold;" id="title" class="card-text text-left"></p></a>
+          <a href="#"><p id="content" class="card-text text-left"></p></a>
           <a data-toggle="collapse" href="#collapseReply" aria-expanded="false" aria-controls="collapseReply"><small class="text-muted reply-hover"><i class="fa fa-reply"></i> Reply </small></a>
-          <a href="#"><i class="text-muted fa fa-comments-o"></i><small id="answers" class="px-2 text-muted"></small></a>
+          <a href="#"><small class="text-muted"><i class="fa fa fa-comments-o"></i> Comments</small></a>
           <a href="#"><small class="text-muted"><i class="fa fa-arrow-circle-up"></i> Upvote</small></a>
           <div class="collapse" id="collapseReply">
             <form onsubmit="return reply()">
-                <input type="text" name="comment" class="form-control" rows="3" id="comment">
-                <input type="hidden" name="id" value="" id="query-id">
+                <textarea type="text" name="comment" class="form-control" rows="3" id="comment"></textarea>
+                <input type="hidden" rows="5" name="id" value="" id="query-id">
                 <button type="submit" class="btn btn-info mt-1">Reply</button>
             </form>
           </div>
@@ -83,7 +83,7 @@
            
 </div>
             <form onsubmit="return reply()">
-              <input type="text" name="comment" class="form-control" rows="3" id="comment">
+              <textarea type="text" name="comment" class="form-control" rows="3" id="comment"></textarea>
               <input type="hidden" name="id" value="" id="query-id2">
               <button type="submit" class="btn btn-info mt-1">Reply</button>
           </form>
